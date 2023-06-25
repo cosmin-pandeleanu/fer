@@ -1,0 +1,10 @@
+# Ignoră fișierele și directoarele generate automat
+__pycache__/
+*.pyc
+
+# Ignoră directoarele specifice
+venv/
+.idea/
+
+# Ignora fisiere generate de sistemul de operare
+.DS_Store

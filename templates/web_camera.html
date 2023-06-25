@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="operations">
+        <h3>Camera Web</h3>
+        <button id="start-button" onclick="startCamera()">Pornește camera</button>
+        <button id="capture-button" onclick="capturePhoto()">Fă o fotografie</button>
+        <button id="stop-button" onclick="stopCamera()">Oprire cameră</button>
+        <button class="btn" onclick="processFileWebCamera()"> Procesează fișier </button>
+        <br><br>
+    </div>
+
+    <div class="media-view">
+        <div id="video-container"></div>
+        <img id="result-image" src="{{ url_for('static', filename='data_output/temp.jpg') }}" width="750px" alt="">
+        <pre><code>{{ info }}</code></pre>
+    </div>
+
+</div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

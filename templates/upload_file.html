@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="operations">
+        <h3>Încărcarea fișierelor locale</h3>
+        <input type="file" id="file-input" name="uploaded-file" accept="image/png, image/jpeg"> <br><br><br>
+        <button class="btn" onclick="processFile()"> Procesează fișier </button>
+        <br><br>
+
+    </div>
+    <div class="media-view">
+        <img id="result-image" src="{{ url_for('static', filename='data_output/temp.jpg') }}" width="750px" alt="">
+        <pre><code>{{ info }}</code></pre>
+    </div>
+</div>
+{% endblock %}
