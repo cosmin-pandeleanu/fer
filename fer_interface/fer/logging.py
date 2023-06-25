@@ -1,5 +1,5 @@
 import csv
-from fer.util import generate_time_now_str
+from fer_interface.fer.util import generate_time_now_str
 
 
 def _write_log_to_file(log_entry, file_path):

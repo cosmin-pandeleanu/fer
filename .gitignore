@@ -7,5 +7,5 @@ venv/
 .idea/
 
 # Ignora fisiere generate de sistemul de operare
-.DS_Store
+**/.DS_Store
 

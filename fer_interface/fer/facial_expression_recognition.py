@@ -4,9 +4,9 @@ import os
 import cv2
 import numpy as np
 from keras.models import model_from_json
-from fer.constants import *
-from fer.logging import *
-from fer.util import generate_time_now_str
+from fer_interface.fer.constants import *
+from fer_interface.fer.logging import *
+from fer_interface.fer.util import generate_time_now_str
 
 
 class FER:

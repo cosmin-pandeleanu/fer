@@ -3,9 +3,9 @@ import json
 
 from flask import Flask, render_template, request, jsonify
 
-from fer.constants import output
-from fer.facial_expression_recognition import FER
-from fer.util import *
+from fer_interface.fer.constants import output
+from fer_interface.fer.facial_expression_recognition import FER
+from fer_interface.fer.util import *
 
 app = Flask(__name__)
 fer = FER()
@@ -51,7 +51,7 @@ def process_file_webcamera():
 @app.route('/file-content')
 def get_file_content():
     # Cod pentru citirea conținutului fișierului text
-    with open('static/data_output/info.json', 'r') as file:
+    with open('fer_interface/static/data_output/info.json', 'r') as file:
         content = file.read()
     return jsonify(content=content)
 
@@ -62,14 +62,14 @@ def save_photo():
     # Se decodează datele imaginii din formatul base64
     image_data = image_data.replace('data:image/png;base64,', '')
     image_data = image_data.encode()
-    with open('static/data_output/temp_webcam.jpg', 'wb') as f:
+    with open('fer_interface/static/data_output/temp_webcam.jpg', 'wb') as f:
         f.write(base64.b64decode(image_data))
     return "Savat cu succes!"
 
 
 def add_info(url):
     try:
-        with open('static/data_output/info.json', 'r') as file:
+        with open('fer_interface/static/data_output/info.json', 'r') as file:
             data = json.load(file)
             data = json.dumps(data, indent=4)
         return render_template(url, info=data)
