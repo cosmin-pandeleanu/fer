@@ -11,7 +11,3 @@ Activează mediul virtual, folosind comanda corespunzătoare sistemului de opera
 Se instalează pachetele din requirements.txt utilizând comanda pip:
 
 `pip install -r requirements.txt`
-
-
----
-`ngrok http 127.0.0.1:5000`

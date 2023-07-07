@@ -11,7 +11,7 @@ from fer_interface.fer.util import generate_time_now_str
 
 class FER:
     """
-    Clasa FER este utilizată pentru a gestionata mai ușor componenta de AI utilizată în cadrul aplicației.
+    Clasa FER este utilizată pentru gestionarea mai ușoară a componentei de AI utilizată în cadrul aplicației.
     """
 
     def __init__(self):
@@ -70,6 +70,10 @@ class FER:
             roi_gray = gray[y:y + h, x:x + w]
             cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray, (48, 48)), -1), 0)
             prediction = self.model.predict(cropped_img)
+            # result_percentages = np.round(prediction * 100, 2).tolist()
+            # print(f"Persoana {i}")
+            # for j in range(0, 7):
+            #     print(f"Clasa {emotion_dict[j]}: {round(result_percentages[0][j], 3)} %")
             maxindex = int(np.argmax(prediction))
             info["Persoana %s" % i] = emotion_dict[maxindex]
             cv2.putText(image, emotion_dict[maxindex], (x + 10, y - 20), cv2.FONT_HERSHEY_COMPLEX, 1.5, (255, 255, 255),
